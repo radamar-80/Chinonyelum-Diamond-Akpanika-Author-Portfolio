@@ -1,1 +1,127 @@
+{
+  "brand": {
+    "name": "Chinonyelum Diamond Akpanika",
+    "professionTagline": "[PLACEHOLDER: e.g., Artist • Writer • Designer]",
+    "bio": "[PLACEHOLDER: short bio about Chinonyelum Diamond Akpanika]",
+    "colors": {
+      "bg": "#0B1220",
+      "panel": "#111B2E",
+      "text": "#EAF2FF",
+      "muted": "#A8B3CF",
+      "accent": "#7C5CFF",
+      "accent2": "#19C37D",
+      "ring": "#7C5CFF"
+    },
+    "fonts": {
+      "ui": "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+    }
+  },
+  "meta": {
+    "siteName": "Portfolio",
+    "titleSuffix": "— Chinonyelum Diamond Akpanika",
+    "faviconHref": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%237C5CFF'/%3E%3Cpath%20d='M18%2032%20c0-9.5%207.7-17%2018-17s18%207.5%2018%2017-7.7%2017-18%2017-18-7.5-18-17Z'%20fill='%230B1220'/%3E%3Cpath%20d='M24%2042%20V22h8.2c4.6%200%207.6%202.7%207.6%207%200%204.3-3%207-7.6%207H24Z'%20fill='%23EAF2FF'/%3E%3C/svg%3E"
+  },
+  "contact": {
+    "email": "[PLACEHOLDER: email@example.com]",
+    "phone": "[PLACEHOLDER: +234 000 000 0000]",
+    "location": "[PLACEHOLDER: City, Country]",
+    "social": [
+      { "label": "Instagram", "href": "[PLACEHOLDER: https://instagram.com/username]", "icon": "instagram" },
+      { "label": "X (Twitter)", "href": "[PLACEHOLDER: https://x.com/username]", "icon": "x" },
+      { "label": "LinkedIn", "href": "[PLACEHOLDER: https://linkedin.com/in/username]", "icon": "linkedin" }
+    ]
+  },
+  "nav": {
+    "items": [
+      { "label": "Home", "href": "index.html" },
+      { "label": "About", "href": "about.html" },
+      { "label": "Works", "href": "works.html" },
+      {
+        "label": "Gallery",
+        "href": "gallery.html",
+        "dropdown": true
+      },
+      { "label": "Contact", "href": "contact.html" }
+    ],
+    "galleryCategoriesFromContent": true
+  },
+  "hero": {
+    "slides": [
+      {
+        "alt": "Abstract hero image placeholder 1",
+        "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1600'%20height='720'%20viewBox='0%200%201600%20720'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237C5CFF'/%3E%3Cstop%20offset='1'%20stop-color='%2319C37D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='1600'%20height='720'%20fill='url(%23g)'/%3E%3Ccircle%20cx='1180'%20cy='220'%20r='220'%20fill='%230B1220'%20opacity='0.22'/%3E%3Cpath%20d='M0%20520%20C260%20420%20400%20660%20700%20540%20C980%20420%201160%20540%201600%20450%20L1600%20720%20L0%20720%20Z'%20fill='%230B1220'%20opacity='0.35'/%3E%3C/svg%3E",
+        "captionTitle": "Welcome",
+        "captionText": "[PLACEHOLDER: hero caption line]"
+      },
+      {
+        "alt": "Abstract hero image placeholder 2",
+        "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1600'%20height='720'%20viewBox='0%200%201600%20720'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='1'%20x2='1'%20y2='0'%3E%3Cstop%20offset='0'%20stop-color='%230B1220'/%3E%3Cstop%20offset='1'%20stop-color='%237C5CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='1600'%20height='720'%20fill='url(%23g)'/%3E%3Crect%20x='120'%20y='120'%20width='560'%20height='320'%20rx='28'%20fill='%23EAF2FF'%20opacity='0.08'/%3E%3Crect%20x='720'%20y='220'%20width='760'%20height='360'%20rx='28'%20fill='%2319C37D'%20opacity='0.16'/%3E%3Cpath%20d='M0%20410%20C240%20490%20480%20330%20740%20430%20C1020%20540%201200%20430%201600%20480%20L1600%20720%20L0%20720%20Z'%20fill='%2311'%20opacity='0.38'/%3E%3C/svg%3E",
+        "captionTitle": "Featured Work",
+        "captionText": "[PLACEHOLDER: hero caption line]"
+      },
+      {
+        "alt": "Abstract hero image placeholder 3",
+        "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1600'%20height='720'%20viewBox='0%200%201600%20720'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='0'%3E%3Cstop%20offset='0'%20stop-color='%2319C37D'/%3E%3Cstop%20offset='1'%20stop-color='%237C5CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='1600'%20height='720'%20fill='url(%23g)'/%3E%3Cpath%20d='M180%20640%20C260%20500%20360%20520%20440%20500%20C520%20480%20540%20410%20650%20380%20C760%20350%20840%20240%20960%20220%20C1080%20200%201190%20270%201280%20260%20C1370%20250%201460%20190%201600%20150%20L1600%20720%20L180%20720%20Z'%20fill='%230B1220'%20opacity='0.33'/%3E%3Ccircle%20cx='420'%20cy='220'%20r='160'%20fill='%230B1220'%20opacity='0.18'/%3E%3C/svg%3E",
+        "captionTitle": "Gallery & Videos",
+        "captionText": "[PLACEHOLDER: hero caption line]"
+      }
+    ]
+  },
+  "gallery": {
+    "categories": [
+      {
+        "id": "collection-1",
+        "name": "[PLACEHOLDER: Category Name 1]"
+      },
+      {
+        "id": "collection-2",
+        "name": "[PLACEHOLDER: Category Name 2]"
+      }
+    ],
+    "items": [
+      {
+        "id": "g1",
+        "categoryId": "collection-1",
+        "title": "[PLACEHOLDER: Work image title]",
+        "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='900'%20viewBox='0%200%201200%20900'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237C5CFF'/%3E%3Cstop%20offset='1'%20stop-color='%2319C37D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='1200'%20height='900'%20fill='url(%23g)'/%3E%3Crect%20x='120'%20y='140'%20width='960'%20height='620'%20rx='34'%20fill='%230B1220'%20opacity='0.28'/%3E%3Ctext%20x='600'%20y='470'%20font-family='Arial'%20font-size='44'%20fill='%23EAF2FF'%20text-anchor='middle'%3E[PLACEHOLDER]%3C/text%3E%3C/svg%3E",
+        "alt": "[PLACEHOLDER: image alt text]"
+      },
+      {
+        "id": "g2",
+        "categoryId": "collection-2",
+        "title": "[PLACEHOLDER: Work image title]",
+        "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='900'%20viewBox='0%200%201200%20900'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='1'%20y1='0'%20x2='0'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%2319C37D'/%3E%3Cstop%20offset='1'%20stop-color='%237C5CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='1200'%20height='900'%20fill='url(%23g)'/%3E%3Crect%20x='140'%20y='160'%20width='920'%20height='580'%20rx='34'%20fill='%23EAF2FF'%20opacity='0.08'/%3E%3Ctext%20x='600'%20y='470'%20font-family='Arial'%20font-size='44'%20fill='%23EAF2FF'%20text-anchor='middle'%3E[PLACEHOLDER]%3C/text%3E%3C/svg%3E",
+        "alt": "[PLACEHOLDER: image alt text]"
+      }
+    ]
+  },
+  "works": [
+    {
+      "id": "w1",
+      "title": "[PLACEHOLDER: Work title 1]",
+      "year": "[PLACEHOLDER: 2024]",
+      "description": "[PLACEHOLDER: short description of work 1]",
+      "imageSrc": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='800'%20height='540'%20viewBox='0%200%20800%20540'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237C5CFF'/%3E%3Cstop%20offset='1'%20stop-color='%2319C37D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='800'%20height='540'%20fill='url(%23g)'/%3E%3Crect%20x='70'%20y='70'%20width='660'%20height='400'%20rx='24'%20fill='%230B1220'%20opacity='0.28'/%3E%3Ctext%20x='400'%20y='285'%20font-family='Arial'%20font-size='34'%20fill='%23EAF2FF'%20text-anchor='middle'%3E[PLACEHOLDER]%3C/text%3E%3C/svg%3E",
+      "alt": "[PLACEHOLDER: work image alt 1]",
+      "link": "[PLACEHOLDER: https://example.com/work-1]"
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "title": "[PLACEHOLDER: Video title 1]",
+      "embedSrc": "[PLACEHOLDER: https://www.youtube.com/embed/VIDEO_ID?rel=0]"
+    },
+    {
+      "id": "v2",
+      "title": "[PLACEHOLDER: Video title 2]",
+      "embedSrc": "[PLACEHOLDER: https://player.vimeo.com/video/VIDEO_ID]"
+    }
+  ],
+  "press": {
+    "items": [
+      { "title": "[PLACEHOLDER: Press/recognition item]", "detail": "[PLACEHOLDER: short detail]" }
+    ]
+  }
+}
 
