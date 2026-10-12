@@ -1,1 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Home — Portfolio</title>
+  <meta name="description" content="[PLACEHOLDER: short meta description for the homepage]" />
+
+  <!-- Favicon will be safe placeholder; you can replace in content.json if desired -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%237C5CFF'/%3E%3Cpath%20d='M18%2032%20c0-9.5%207.7-17%2018-17s18%207.5%2018%2017-7.7%2017-18%2017-18-7.5-18-17Z'%20fill='%230B1220'/%3E%3Cpath%20d='M24%2042%20V22h8.2c4.6%200%207.6%202.7%207.6%207%200%204.3-3%207-7.6%207H24Z'%20fill='%23EAF2FF'/%3E%3C/svg%3E" />
+  <meta property="og:title" content="Home — Portfolio" />
+  <meta property="og:description" content="[PLACEHOLDER: OG description]" />
+  <meta property="og:type" content="website" />
+</head>
+
+<body data-page="index">
+  <header id="site-header"></header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-carousel" data-hero-carousel="1" aria-roledescription="carousel">
+          <div class="carousel-track" data-carousel-track="1"></div>
+
+          <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="carousel-btn" type="button" data-carousel-prev="1" aria-label="Previous slide">‹</button>
+            <button class="carousel-btn" type="button" data-carousel-next="1" aria-label="Next slide">›</button>
+            <button class="carousel-btn" type="button" data-carousel-pause="1" aria-pressed="false">Pause carousel</button>
+          </div>
+
+          <div class="indicators" data-carousel-indicators="1" aria-label="Carousel slide selector"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="welcome" class="grid-2"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container" id="gallery-teaser"></div>
+    </section>
+
+    <section class="section" style="padding-top: 1.6rem;">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Featured Works</h2>
+          <a class="section-link" href="works.html">See all</a>
+        </div>
+        <div id="featured-works" class="works-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 1.8rem;">
+      <div class="container" id="videos"></div>
+    </section>
+
+    <section class="section">
+      <div class="container" id="press"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <div class="lightbox-title" data-lightbox-title="1"></div>
+        <button class="lightbox-close" type="button" data-lightbox-close="1" aria-label="Close preview">✕</button>
+      </div>
+      <div class="lightbox-body">
+        <img data-lightbox-img="1" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initSite } from './js/site.js';
+    initSite();
+  </script>
+</body>
+</html>
 
