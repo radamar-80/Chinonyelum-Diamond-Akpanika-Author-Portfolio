@@ -3,7 +3,7 @@
  * All reads go through this file so a future backend only changes here.
  */
 
-const CONTENT_PATH = '../data/content.json';
+const CONTENT_PATH = './data/content.json';
 
 /**
  * @returns {Promise<any>}
