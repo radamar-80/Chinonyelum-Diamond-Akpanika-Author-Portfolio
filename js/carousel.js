@@ -8,10 +8,9 @@ function clamp(n, min, max) {
 
 /**
  * @param {any[]} slides
- * @param {{reducedMotion?: boolean}} [options]
  */
-export function initCarousel(slides, options = {}) {
-  const reducedMotion = options.reducedMotion === true;
+export function initCarousel(slides) {
+  const motionQuery = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   const root = document.querySelector('[data-hero-carousel="1"]');
   if (!root) return;
 
@@ -22,6 +21,11 @@ export function initCarousel(slides, options = {}) {
   const pauseBtn = root.querySelector('[data-carousel-pause="1"]');
 
   if (!track || !indicators) return;
+
+  if (!slides.length) {
+    root.hidden = true;
+    return;
+  }
 
   const items = slides
     .map((s, idx) => {
@@ -58,7 +62,9 @@ export function initCarousel(slides, options = {}) {
   let index = 0;
   let timer = null;
   const intervalMs = 5500;
-  let paused = false;
+  let manuallyPaused = false;
+  let hoverPaused = false;
+  let focusPaused = false;
 
   function render() {
     const translate = `translateX(${-index * 100}%)`;
@@ -74,10 +80,9 @@ export function initCarousel(slides, options = {}) {
   }
 
   function start() {
-    if (reducedMotion) return;
+    if (motionQuery?.matches || slides.length < 2) return;
     if (timer) return;
     timer = window.setInterval(() => {
-      if (paused) return;
       goTo((index + 1) % slides.length);
     }, intervalMs);
   }
@@ -87,6 +92,11 @@ export function initCarousel(slides, options = {}) {
       window.clearInterval(timer);
       timer = null;
     }
+  }
+
+  function updatePlayback() {
+    if (manuallyPaused || hoverPaused || focusPaused || motionQuery?.matches) stop();
+    else start();
   }
 
   indicators.addEventListener('click', (e) => {
@@ -103,23 +113,30 @@ export function initCarousel(slides, options = {}) {
 
   // Pause on hover/focus for keyboard users
   root.addEventListener('mouseenter', () => {
-    paused = true;
+    hoverPaused = true;
+    updatePlayback();
   });
   root.addEventListener('mouseleave', () => {
-    paused = false;
+    hoverPaused = false;
+    updatePlayback();
   });
   root.addEventListener('focusin', () => {
-    paused = true;
+    focusPaused = true;
+    updatePlayback();
   });
-  root.addEventListener('focusout', () => {
-    paused = false;
+  root.addEventListener('focusout', (event) => {
+    if (!root.contains(event.relatedTarget)) {
+      focusPaused = false;
+      updatePlayback();
+    }
   });
 
   if (pauseBtn) {
     pauseBtn.addEventListener('click', () => {
-      paused = !paused;
-      pauseBtn.setAttribute('aria-pressed', String(paused));
-      pauseBtn.textContent = paused ? 'Resume carousel' : 'Pause carousel';
+      manuallyPaused = !manuallyPaused;
+      pauseBtn.setAttribute('aria-pressed', String(manuallyPaused));
+      pauseBtn.textContent = manuallyPaused ? 'Resume carousel' : 'Pause carousel';
+      updatePlayback();
     });
   }
 
@@ -136,17 +153,9 @@ export function initCarousel(slides, options = {}) {
 
   // Initial
   render();
-  if (!reducedMotion) start();
+  updatePlayback();
 
   // Respect reduced motion if user changes preference mid-session
-  const mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mq) {
-    mq.addEventListener?.('change', () => {
-      stop();
-      paused = false;
-      if (mq.matches) return;
-      start();
-    });
-  }
+  motionQuery?.addEventListener?.('change', updatePlayback);
 }
 

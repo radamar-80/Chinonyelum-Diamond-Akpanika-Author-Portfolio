@@ -60,7 +60,13 @@ function applyTheme(brand) {
  */
 function renderHeader(content) {
   const { nav, contact, brand } = content;
-  const social = contact.social || [];
+  const social = (contact.social || []).filter((s) => {
+    try {
+      return new URL(s.href).protocol === 'https:' && !s.href.includes('[PLACEHOLDER:');
+    } catch {
+      return false;
+    }
+  });
 
   const header = document.getElementById(HEADER_ID);
   if (!header) return;
@@ -68,7 +74,7 @@ function renderHeader(content) {
   header.innerHTML = `
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="topbar" role="navigation" aria-label="Top bar social links">
+    ${social.length ? `<div class="topbar" role="navigation" aria-label="Social links">
       <div class="container topbar-inner">
         <div class="brand-mini" aria-hidden="true">${brand.name}</div>
         <div class="social-links">
@@ -82,7 +88,7 @@ function renderHeader(content) {
             .join('')}
         </div>
       </div>
-    </div>
+    </div>` : ''}
 
     <div class="headerbar">
       <div class="container header-inner">
@@ -100,7 +106,7 @@ function renderHeader(content) {
             ${nav.items
               .map((item) => {
                 if (item.dropdown && nav.galleryCategoriesFromContent) {
-                  const categories = (content.gallery?.categories || []).map((c) => c);
+                  const categories = (content.gallery?.categories || []).filter((c) => c.name && !/^\[PLACEHOLDER:/i.test(c.name));
                   return `
                     <li class="nav-item has-dropdown">
                       <button class="nav-link nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
@@ -145,7 +151,13 @@ function renderFooter(content) {
   const footer = document.getElementById(FOOTER_ID);
   if (!footer) return;
 
-  const social = content.contact.social || [];
+  const social = (content.contact.social || []).filter((s) => {
+    try {
+      return new URL(s.href).protocol === 'https:' && !s.href.includes('[PLACEHOLDER:');
+    } catch {
+      return false;
+    }
+  });
 
   footer.innerHTML = `
     <div class="footer">
@@ -251,6 +263,13 @@ function initContactForm(content) {
   if (!form) return;
 
   const emailInContent = content.contact?.email || '';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInContent)) {
+    form.hidden = true;
+    const message = form.previousElementSibling;
+    if (message) message.textContent = 'Email contact details will appear here.';
+    form.closest('.contact-layout')?.classList.add('contact-layout-full');
+    return;
+  }
   const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', (e) => {
@@ -287,14 +306,7 @@ export async function initSite() {
 
   initHeaderInteractions();
 
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Carousel
-  if (!reduceMotion) initCarousel(contentCache.hero?.slides || []);
-  else {
-    // Still render first slide as static
-    initCarousel(contentCache.hero?.slides || [], { reducedMotion: true });
-  }
+  initCarousel(contentCache.hero?.slides || []);
 
   initGalleryLightbox();
 

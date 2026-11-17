@@ -217,7 +217,7 @@ main{
 .carousel-slide{
   min-width:100%;
   position:relative;
-  aspect-ratio: 16 / 9;
+  height: clamp(22rem, 58svh, 42rem);
   background: rgba(255,255,255,0.02);
 }
 .carousel-slide img{
@@ -245,6 +245,7 @@ main{
   color: var(--muted);
   margin-top: 0.35rem;
 }
+.carousel-caption-text:empty{ display:none; }
 
 .carousel-controls{
   position:absolute;
@@ -520,6 +521,7 @@ main{
   grid-template-columns: 1fr;
   gap: 1rem;
 }
+.contact-layout.contact-layout-full, .filters.filters-full{ grid-template-columns: 1fr; }
 form{
   background: rgba(17,27,46,0.55);
   border: 1px solid rgba(255,255,255,0.10);
@@ -630,7 +632,7 @@ textarea{ min-height: 120px; resize: vertical; }
   :root{ --header-h: 68px; }
   .nav-menu{
     position:absolute;
-    top: calc(var(--header-topbar-h) + var(--header-h) - 6px);
+    top: calc(100% - 6px);
     right: 0.9rem;
     left: 0.9rem;
     background: rgba(17,27,46,0.98);
@@ -654,5 +656,10 @@ textarea{ min-height: 120px; resize: vertical; }
   .has-dropdown.open .dropdown{ display:block; }
   .dropdown.open{ display:block; }
   .carousel-caption{ left: 4%; right: 4%; bottom: 8%; }
+  .carousel-slide{ height: clamp(22rem, 58svh, 36rem); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-carousel .carousel-track{ transition:none; }
 }
 
